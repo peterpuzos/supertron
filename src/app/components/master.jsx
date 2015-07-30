@@ -14,6 +14,7 @@ class Master extends React.Component {
   constructor() {
     super();
     this._onLeftIconButtonTouchTap = this._onLeftIconButtonTouchTap.bind(this);
+    this._onPersonClick = this._onPersonClick.bind(this);
   }
 
   getChildContext() {
@@ -22,9 +23,23 @@ class Master extends React.Component {
     }
   }
 
+  componentWillMount() {
+    ThemeManager.setPalette({
+        primary1Color: Colors.blue500,
+        primary2Color: Colors.blue700,
+        primary3Color: Colors.blue100,
+        accent1Color: Colors.red500,
+        accent2Color: Colors.red700,
+        accent3Color: Colors.red100
+    });
+  }
+
   getStyles() {
     let darkWhite = Colors.darkWhite;
     return {
+      appBar: {
+        backgroundColor: Colors.blue500,
+      },
       footer: {
         backgroundColor: Colors.grey900,
         textAlign: 'center'
@@ -46,18 +61,21 @@ class Master extends React.Component {
 
   render() {
     let styles = this.getStyles();
+    let personButton = (
+        <IconButton
+            iconStyle={styles.iconButton}
+            iconClassName="material-icons"
+            onTouchTap={this._onPersonClick}
+            linkButton={true}>person</IconButton>
+    );
+
     let title =
+      this.context.router.isActive('datatron') ? 'Datatron' :
+      this.context.router.isActive('thirsty-camel') ? 'Thirsty Camel' :
+      this.context.router.isActive('remora') ? 'Remora' :
       this.context.router.isActive('get-started') ? 'Get Started' :
       this.context.router.isActive('customization') ? 'Customization' :
       this.context.router.isActive('components') ? 'Components' : '';
-
-    let githubButton = (
-      <IconButton
-        iconStyle={styles.iconButton}
-        iconClassName="muidocs-icon-custom-github"
-        href="https://github.com/callemall/material-ui"
-        linkButton={true} />
-    );
 
     return (
       <AppCanvas>
@@ -65,8 +83,9 @@ class Master extends React.Component {
         <AppBar
           onLeftIconButtonTouchTap={this._onLeftIconButtonTouchTap}
           title={title}
+          style={styles.appBar}
           zDepth={0}
-          iconElementRight={githubButton}/>
+          iconElementRight={personButton}/>
 
         <AppLeftNav ref="leftNav" />
 
@@ -74,10 +93,8 @@ class Master extends React.Component {
 
         <FullWidthSection style={styles.footer}>
           <p style={styles.p}>
-            Hand crafted with love by the engineers at <a style={styles.a} href="http://call-em-all.com">Call-Em-All</a> and our
-            awesome <a style={styles.a} href="https://github.com/callemall/material-ui/graphs/contributors">contributors</a>.
+            The Future of Data is Now
           </p>
-          {githubButton}
         </FullWidthSection>
 
       </AppCanvas>
@@ -87,6 +104,11 @@ class Master extends React.Component {
   _onLeftIconButtonTouchTap() {
     this.refs.leftNav.toggle();
   }
+
+  _onPersonClick() {
+    this.context.router.transitionTo('root');
+  }
+
 }
 
 Master.contextTypes = {

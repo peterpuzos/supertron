@@ -13,6 +13,10 @@ let Customization = require('./components/pages/customization');
 let Colors = require('./components/pages/customization/colors');
 let Themes = require('./components/pages/customization/themes');
 let InlineStyles = require('./components/pages/customization/inline-styles');
+// New pages for Cybertron
+let Remora = require('./components/pages/remora');
+let Datatron = require('./components/pages/datatron');
+let ThirstyCamel = require('./components/pages/thirsty-camel')
 
 let Components = require('./components/pages/components');
 let AppBar = require('./components/pages/components/app-bar');
@@ -52,6 +56,10 @@ let Toolbars = require('./components/pages/components/toolbars');
 let AppRoutes = (
   <Route name="root" path="/" handler={Master}>
     <Route name="home" handler={Home} />
+
+    <Route name="thirsty-camel" handler={ThirstyCamel} />
+    <Route name="datatron" handler={Datatron} />
+    <Route name="remora" handler={Remora} />
     <Route name="get-started" handler={GetStarted} />
     <Route name="customization" handler={Customization}>
       <Route name="colors" handler={Colors} />

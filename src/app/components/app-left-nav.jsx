@@ -4,6 +4,10 @@ let { MenuItem, LeftNav, Styles } = require('material-ui');
 let { Colors, Spacing, Typography } = Styles;
 
 let menuItems = [
+    { route: 'thirsty-camel', text: 'Thirsty Camel' },
+    { route: 'datatron', text: 'DataTron' },
+    { route: 'remora', text: 'Remora' },
+    { type: MenuItem.Types.SUBHEADER, text: 'Material UI' },
     { route: 'get-started', text: 'Get Started' },
     { route: 'customization', text: 'Customization' },
     { route: 'components', text: 'Components' },
@@ -26,22 +30,28 @@ class AppLeftNav extends React.Component {
 
   getStyles() {
     return {
-      cursor: 'pointer',
-      //.mui-font-style-headline
-      fontSize: '24px',
-      color: Typography.textFullWhite,
-      lineHeight: Spacing.desktopKeylineIncrement + 'px',
-      fontWeight: Typography.fontWeightLight,
-      backgroundColor: Colors.blueGrey500,
-      paddingLeft: Spacing.desktopGutter,
-      paddingTop: '0px',
-      marginBottom: '8px'
+      header: {
+        cursor: 'pointer',
+        //.mui-font-style-headline
+        fontSize: '24px',
+        color: Typography.textFullWhite,
+        lineHeight: Spacing.desktopKeylineIncrement + 'px',
+        fontWeight: Typography.fontWeightLight,
+        backgroundColor: Colors.blue500,
+        paddingLeft: Spacing.desktopGutter,
+        paddingTop: '0px',
+        marginBottom: '8px'
+      },
+      leftNav: {
+
+      }
     };
   }
 
   render() {
+    let styles = this.getStyles();
     let header = (
-      <div style={this.getStyles()} onTouchTap={this._onHeaderClick}>
+      <div style={styles.header} onTouchTap={this._onHeaderClick}>
         Cybertron
       </div>
     );
@@ -54,7 +64,9 @@ class AppLeftNav extends React.Component {
         header={header}
         menuItems={menuItems}
         selectedIndex={this._getSelectedIndex()}
-        onChange={this._onLeftNavChange} />
+        onChange={this._onLeftNavChange}
+        style={styles.leftNav}
+          />
     );
   }
 

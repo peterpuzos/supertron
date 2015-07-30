@@ -35,7 +35,7 @@ let HomePage = React.createClass({
   _getHomePageHero() {
     let styles = {
       root: {
-        backgroundColor: Colors.cyan500,
+        backgroundColor: Colors.blue500,
         overflow: 'hidden'
       },
       svgLogo: {
@@ -48,7 +48,7 @@ let HomePage = React.createClass({
         maxWidth: '575px'
       },
       label: {
-        color: ThemeManager.palette.primary1Color,
+        color: Colors.blue500,
       },
       githubStyle: {
         margin: '16px 32px 0px 8px'

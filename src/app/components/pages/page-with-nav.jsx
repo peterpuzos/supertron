@@ -61,8 +61,7 @@ let PageWithNav = React.createClass({
   },
 
   render() {
-    let styles = this.getStyles();
-    return (
+    let styles = this.getStyles();return (
       <div style={styles.root}>
         <div style={styles.content}>
           <RouteHandler />
