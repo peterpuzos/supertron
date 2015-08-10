@@ -28,6 +28,8 @@
     "watchify": "^2.2.1"
   },
   "dependencies": {
+    "alt": "^0.17.1",
+    "axios": "^0.5.4",
     "material-ui": ">=0.8",
     "react": ">=0.13",
     "react-tap-event-plugin": "^0.1.3"

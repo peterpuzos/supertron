@@ -6,7 +6,7 @@ let FullWidthSection = require('../full-width-section');
 let { Spacing, Typography } = Styles;
 
 
-class GetStarted extends React.Component {
+class Datatron extends React.Component {
 
   getStyles() {
     return {
@@ -154,8 +154,8 @@ class GetStarted extends React.Component {
 
 }
 
-GetStarted.contextTypes = {
+Datatron.contextTypes = {
   muiTheme: React.PropTypes.object
 };
 
-module.exports = GetStarted;
+module.exports = Datatron;

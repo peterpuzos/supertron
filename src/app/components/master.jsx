@@ -1,13 +1,12 @@
-let React = require('react');
-let Router = require('react-router');
-let AppLeftNav = require('./app-left-nav');
-let FullWidthSection = require('./full-width-section');
-let { AppBar, AppCanvas, IconButton, Menu, Styles } = require('material-ui');
+import React from 'react';
+import Router from 'react-router';
+import AppLeftNav from './app-left-nav';
+import FullWidthSection from './full-width-section';
+import { AppBar, AppCanvas, IconButton, Menu, Styles } from 'material-ui';
 
 let RouteHandler = Router.RouteHandler;
 let { Colors, Typography } = Styles;
 let ThemeManager = new Styles.ThemeManager();
-
 
 class Master extends React.Component {
 
