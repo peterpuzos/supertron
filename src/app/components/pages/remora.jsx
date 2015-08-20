@@ -24,8 +24,8 @@ class Remora extends React.Component {
             stripedRows: false,
             showRowHover: false,
             selectable: true,
-            multiSelectable: false,
-            canSelectAll: false,
+            multiSelectable: true,
+            canSelectAll: true,
             deselectOnClickaway: true,
             height: '400px'
         }
@@ -44,33 +44,6 @@ class Remora extends React.Component {
         //if (!this.state.rowData.length) {
         //    RemoraActions.requestSelectors();
         //}
-    }
-
-    _getRemoraState() {
-        return {
-            rowData: RemoraStore.getState().rowData,
-            tableProps: RemoraStore.getTableProps()
-        };
-    }
-
-    _onChange(selectors) {
-        for (let selector of selectors) {
-            var selectorKeys = Object.keys(selector);
-            selectorKeys.forEach(function (key) {
-                selector[key] = {content: selector[key]};
-            });
-        }
-
-        state.rowData = selectors;
-        if (selectors.length) {
-            state.colOrder = selectorKeys;
-            state.headerCols = {}
-            for (let selectorKey of selectorKeys) {
-                state.headerCols[selectorKey] = {content: selectorKey};
-            }
-        }
-
-        this.setState(state);
     }
 
     getStyles() {
@@ -117,14 +90,8 @@ class Remora extends React.Component {
         }
 
         let styles = this.getStyles();
-
-        let headerCols = {id: {content: 'ID', tooltip: 'The ID'}, name: {content: 'Name', tooltip: 'The name'}, status: {content: 'Status', tooltip: 'The status'}};
-        let colOrder = ['id', 'name', 'status'];
-        let rowData = [
-            {id: {content: '2'}, name: {content: 'Randal White'}, status: {content: 'Unemployed'}},
-            {id: {content: '4'}, name: {content: 'Steve Brown'}, status: {content: 'Employed'}},
-            {id: {content: '5'}, name: {content: 'Joyce Whitten'}, status: {content: 'Employed'}}
-        ];
+        //TODO: HZ - I'm not sure why I have to apply this hacky code but props are being loaded with no data on page initialization
+        let colOrder = this.props.colOrder.length > 0 ? this.props.colOrder : [""];
 
         //let footerCols = {id: {content: 'ID'}, name: {content: 'Name'}, status: {content: 'Status'}};
 
