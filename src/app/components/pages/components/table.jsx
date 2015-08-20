@@ -378,7 +378,7 @@ let footerCols = {id: {content: 'ID'}, name: {content: 'Name'}, status: {content
     let rowData = [
       {id: {content: '1'}, name: {content: 'John Smith'}, status: {content: 'Employed'}},
       {id: {content: '2'}, name: {content: 'Randal White'}, status: {content: 'Unemployed'}},
-      {id: {content: '3'}, name: {content: 'Stephanie Sandersaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}, status: {content: 'Employed'}},
+      {id: {content: '3'}, name: {content: 'Stephanie Sanders'}, status: {content: 'Employed'}},
       {id: {content: '4'}, name: {content: 'Steve Brown'}, status: {content: 'Employed'}},
       {id: {content: '5'}, name: {content: 'Joyce Whitten'}, status: {content: 'Employed'}},
       {id: {content: '6'}, name: {content: 'Samuel Roberts'}, status: {content: 'Unemployed'}},

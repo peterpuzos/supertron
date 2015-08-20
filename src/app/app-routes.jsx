@@ -14,7 +14,7 @@ let Colors = require('./components/pages/customization/colors');
 let Themes = require('./components/pages/customization/themes');
 let InlineStyles = require('./components/pages/customization/inline-styles');
 // New pages for Cybertron
-let Remora = require('./components/pages/remora');
+let Remora = require('./components/pages/remora-container');
 let Datatron = require('./components/pages/datatron');
 let ThirstyCamel = require('./components/pages/thirsty-camel')
 

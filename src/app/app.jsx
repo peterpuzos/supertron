@@ -1,9 +1,9 @@
-(function () {
-  let React = require('react');
-  let Router = require('react-router');
-  let AppRoutes = require('./app-routes.jsx');
-  let injectTapEventPlugin = require('react-tap-event-plugin');
+import React from 'react';
+import Router from 'react-router';
+import AppRoutes from './app-routes';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
+(function () {
   //let Main = require('./components/main.jsx'); // Our custom react component
 
   //Needed for React Developer Tools
@@ -30,6 +30,5 @@
       .run(function (Handler) {
         React.render(<Handler/>, document.body);
       });
-
 
 })();

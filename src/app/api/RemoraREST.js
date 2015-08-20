@@ -2,28 +2,34 @@
  * Created by HZ on 8/7/15.
  */
 
-/**
- * Mocking client-server processing
- */
-'use strict';
-
 import axios from 'axios';
+import RemoraActions from '../actions/RemoraActions';
 
-var RemoraREST = exports;
+let RemoraREST = {
+    fetchSelectors() {
+        return {
+            remote() {
+                return new Promise(function(resolve, reject) {
+                    axios.get('http://localhost:1337/books')
+                        .then( function(response) {
+                            resolve(response.data);
+                        })
+                        .catch( function(response) {
+                            reject("Server failed to fetch selectors");
+                        });
+                });
+            },
 
-RemoraREST.getSelectors = function (cb, timeout) {
+            local() {
+                // Never check locally, always fetch remotely.
+                return null;
+            },
 
-    return axios.get('')
+            success: RemoraActions.updateSelectors,
+            error: RemoraActions.selectorsFailed,
+            loading: RemoraActions.fetchSelectors
+        }
+    }
+}
 
-    timeout = timeout || TIMEOUT;
-    setTimeout(function () {
-        cb(_products);
-    }, timeout);
-};
-
-RemoraREST.buyProducts = function (payload, cb, timeout) {
-    timeout = timeout || TIMEOUT;
-    setTimeout(function () {
-        cb();
-    }, timeout);
-};
+export default RemoraREST;

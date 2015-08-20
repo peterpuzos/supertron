@@ -3,23 +3,39 @@
  */
 
 import alt from '../alt';
-import RemoraAPIUtils from '../utils/RemoraAPIUtils';
+import RemoraREST from '../api/RemoraREST';
 
 class RemoraActions {
     constructor() {
-        this.generateActions(
-            'receiveSelectors',
-            'addSelectors',
-            'editSelectors',
-            'deleteSelectors',
-            'completeAdd'
-        );
+        //this.generateActions(
+        //    'fetchSelectors'
+        //);
     }
 
-    cartCheckout(products) {
-        this.dispatch(products);
-        RemoraAPIUtils.checkoutProducts(products);
-    }
+    fetchSelectors()
+    {
+        this.dispatch();
+    };
+
+    updateSelectors(selectors)
+    {
+        this.dispatch(selectors);
+    };
+
+    selectorsFailed(errorMessage)
+    {
+        this.dispatch(errorMessage);
+    };
+
+    //requestSelectors() {
+    //
+    //    RemoraREST.getSelectors().then( (response) => {
+    //        this.actions.receiveSelectors(response.data);
+    //    }).catch( (error) => {
+    //        console.log(error);
+    //    });
+    //}
+
 }
 
-alt.createActions(RemoraActions, exports);
+export default alt.createActions(RemoraActions);
